@@ -1,0 +1,13 @@
+{
+  "run_list": [
+    "role[cassandra]"
+  ],
+  "automatic": {
+    "ipaddress": "test1"
+  },
+  "normal": {
+    "opscenter": {
+      "enabled": "true"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "cassandra",
+  "json_class": "Chef::Role",
+  "description": "Exemple de rôle avec Chef",
+  "override_attributes": {
+    "cleaninstall": "true",
+    "pkg": {
+      "redhat": [""],
+      "debian": ["libaio1","openjdk-8-jre","dse","dse-libcassandra","dse-liblog4j","dse-libsolr","dse-libspark","dse-libgraph","dse-libtomcat","datastax-agent","apache2","opscenter"]
+    },
+    "apache_pkg": "apache2",
+    "cluster_name": "Test_Cluster",
+    "cql_port": "9042",
+    "seeds": "<comma separated seeds IP list>",
+    "java_heap_size": "512M",
+    "opscenter": {
+      "address": "<opscenter host IP>",
+      "http_port": "8888",
+      "jmx_port": "7199",
+      "auth": "false"
+    },
+    "proto": "https",
+    "repo": "debian.datastax.com/enterprise",
+    "repo_key": "debian.datastax.com/debian/repo_key",
+    "datastax_key": "<your Datastax key>",
+    "datastax_user": "<you Datastax login>"
+  },
+  "run_list": [
+    "recipe[cassandra::example]"
+   ]
+}

@@ -1,0 +1,7 @@
+<VirtualHost *:80>
+    ProxyPreserveHost On
+    ProxyPass / http://<%= @opscenter_address %>:<%= @opscenter_port %>/
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

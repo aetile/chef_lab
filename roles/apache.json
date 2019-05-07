@@ -1,0 +1,21 @@
+{
+  "name": "apache",
+  "json_class": "Chef::Role",
+  "description": "Exemple de rôle avec Chef",
+  "override_attributes": {
+    "pkg": "apache2",
+    "root": "/var/www",
+    "log_dir": "/var/log/apache2",
+    "email": "webmaster@localhost",
+    "interface": "<Public IP>",
+    "http_port": "80",
+    "websites": [
+      { "name": "sportz", "log_level": "info ssl:warn", "server": { "name": "example2.com", "alias": "www.example2.com" }, "vhost": { "name": "example2", "ip": "*", "port": "80" }, "tarball": "sportz.zip" },
+      { "name": "industrie", "log_level": "info ssl:warn", "server": { "name": "example3.com", "alias": "www.example3.com" }, "vhost": { "name": "example3", "ip": "*", "port": "80" }, "tarball": "industrie.zip" }
+    ]
+  },
+  "run_list": [
+    "recipe[apache::uninstall]",
+    "recipe[apache::example]"
+   ]
+}

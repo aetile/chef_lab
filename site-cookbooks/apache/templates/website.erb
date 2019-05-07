@@ -1,0 +1,15 @@
+<VirtualHost <%= @vhostip %>:80>
+	ServerName <%= @servername %>
+        ServerAlias <%= @serveralias %>
+
+        #ProxyPreserveHost On
+        #ProxyPass / http://localhost:<%= @vhostport %>/
+
+	ServerAdmin root@localhost
+        DocumentRoot <%= @documentroot %>
+
+	#LogLevel <%= @loglevel %>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
